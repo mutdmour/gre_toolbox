@@ -1,7 +1,7 @@
 # add vocabs to list
 from PyDictionary import PyDictionary
 import csv
-from './helpers.py' import keys
+from helpers import keys
 
 file = 'vocab.csv'
 vocab = {}
