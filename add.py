@@ -1,12 +1,10 @@
 # add vocabs to list
 from PyDictionary import PyDictionary
 import csv
- 
+from './helpers.py' import keys
 
 file = 'vocab.csv'
 vocab = {}
-
-keys = ["word","deck","def","ex", "weight", "lastTested","numTested","numRight","source"]
 
 with open(file, 'rb') as csv_file:
     reader = csv.DictReader(csv_file)

@@ -6,7 +6,8 @@ import os
 from PyDictionary import PyDictionary
 
 dictionary = PyDictionary()
-
+	
+keys = ["word","deck","def","ex", "weight", "lastTested","numTested","numRight"]
 
 options = ["new", "review", "mastered"]
 prob = [1, 0, 0] #xxx allow for input from command line
@@ -14,10 +15,7 @@ prob = [1, 0, 0] #xxx allow for input from command line
 sound_file = "word.mp3"
 
 def play(f):
-	try:
-		os.system("mpg321 --quiet -o alsa {0}".format(f))
-	except:
-		os.system("mpg321 --quiet {0}".format(f))
+	os.system("mpg321 --quiet -o alsa {0}".format(f))
 
 def speak(word):
 	tts = gTTS(text=word, lang='en')
