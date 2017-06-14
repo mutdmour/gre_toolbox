@@ -1,2 +1,2 @@
-keys = ["word","deck","def","ex", "weight", "lastTested","numTested","numRight"]
+keys = ["word","deck","source","def","ex", "weight", "lastTested","numTested","numRight"]
 
