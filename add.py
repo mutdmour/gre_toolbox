@@ -1,28 +1,9 @@
 # add vocabs to list
 from PyDictionary import PyDictionary
 import csv
-from helpers import keys
+from helpers import  reader, writer, yesOrNo
 
-file = 'vocab.csv'
-vocab = {}
-
-with open(file, 'rb') as csv_file:
-    reader = csv.DictReader(csv_file)
-    for row in reader:
-	word = row["word"]
-	vocab[word] = {}
-	for key, value in row.iteritems():
-		if (key != "word"):
-			if (key == "weight"):
-				value = float(value)
-			elif (key == "numRight" or key == "numTested"):
-				value = int(value)
-			elif (key == "lastTested"):
-				if (value == ''):
-					value = None
-				else:
-					datetime.strptime(value,"%b %d")
-			vocab[word][key] = value
+vocab = reader()
 
 deck = raw_input("Name of deck? ").strip().lower()
 source = raw_input("Source (magoosh, barrons...)? ").strip().lower()
@@ -30,14 +11,6 @@ if (deck == ""):
 	deck = "other"
 if (source == ""):
 	source = "other"
-
-def yesOrNo(message):
-	while (True):
-		answer = raw_input("{0} (y|n) ".format(message)).strip().lower()
-		if (answer == "y"):
-			return True
-		elif(answer == "n"):
-			return False
 
 more = True
 addedCount = 0
@@ -102,14 +75,8 @@ while(more):
 		else:
 			print "Okay, won't add"
 
+writer(vocab)
+
 print ""
 print "Added",addedCount,"words"
 print "Now you have a total of", len(vocab), "words"
-
-with open(file, 'wb') as csv_file:
-	writer = csv.DictWriter(csv_file, fieldnames=keys)
-	writer.writeheader()
-	for word, obj in vocab.iteritems():
-		res = {k:v for k,v in obj.iteritems()}
-		res["word"] = word
-		writer.writerow(res)
