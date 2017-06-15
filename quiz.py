@@ -13,6 +13,7 @@ def mastered_rule(v):
 def run(total=5):
 	dictionary = PyDictionary()
 
+	qtypes = ["def","fill-in","example"]
 	options = ["quiz", "review", "mastered"]
 	prob = [1, 0, 0] #xxx allow for input from command line
 	count = 0
@@ -65,7 +66,7 @@ def run(total=5):
 				else:
 					trials -= 1
 			else:
-				speak(test_word)
+				#speak(test_word)
 				if (answer == test_word):
 					reward = ""
 					if (trials == 1): #if you got it right the first time
