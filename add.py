@@ -98,7 +98,7 @@ while(more):
 					"numRight":0,
 					"weight":0.}
 			print "Added", word
-			print vocab[word]
+			#print vocab[word]
 		else:
 			print "Okay, won't add"
 

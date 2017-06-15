@@ -1,8 +1,9 @@
-word,deck,def,ex,weight,lastTested,numTested,numRight,source
-amenable,common1,easily persuaded,"Ann is pretty amenable to Leslie's force of will and over-the-top complements, so Leslie can usually get her to do anything, like leaving nursing to take up a government job.",0.0,,0,0,magoosh
-maintain,common1,to assert,"Tom always maintained that he was going to become a rich successful businessman, even when it looked really bleak for him.",0.0,,0,0,magoosh
-betray,common1,to reveal unintentionally,"When asked by Ron, Jerry quickly betrayed Leslie's plans to find a historical connection to the land.",0.0,,0,0,magoosh
-impertinent,common1,(adj) being disrespectful; improperly forward or bold,"The tattoo shop owner's suggestion to build a disney park felt very impertinent to Leslie, especially since he was not invited, broke through a window to get in and it was a stupid unoriginal idea.",0.0,,0,0,magoosh
-extant,common1,still in existence (in reference to documents),"After 30 years, Leslie and Ben were suprised to find her River Cleanup document was still extant in Public Work circles as an example of great work.",0.0,,0,0,magoosh
-harangue,common1,"a long pompous speed or tirade (n), or to deliver such one (v)",Leslie's harangue about Pawnee's lack of appreciation for her work was met with disapproval from the people of Pawnee and contributed to her loosing the election.,0.0,,0,0,magoosh
-profligate,common1,wasting resources recklessly (adj) or those who do that (n),"Eagletonians are terrible profligates. They have a department of Infinity Pools that's so profilgate, Leslie closed it and put the department on hold.",0.0,,0,0,magoosh
+word,deck,source,def,ex,weight,lastTested,numTested,numRight
+amenable,common1,magoosh,easily persuaded,"Ann is pretty amenable to Leslie's force of will and over-the-top complements, so Leslie can usually get her to do anything, like leaving nursing to take up a government job.",0.0,,0,0
+maintain,common1,magoosh,to assert,"Tom always maintained that he was going to become a rich successful businessman, even when it looked really bleak for him.",0.0,,0,0
+betray,common1,magoosh,to reveal unintentionally,"When asked by Ron, Jerry quickly betrayed Leslie's plans to find a historical connection to the land.",0.0,,0,0
+impertinent,common1,magoosh,(adj) being disrespectful; improperly forward or bold,"The tattoo shop owner's suggestion to build a disney park felt very impertinent to Leslie, especially since he was not invited, broke through a window to get in and it was a stupid unoriginal idea.",0.0,,0,0
+staunch,common3,magoosh,firm and dependable in loyalty,"Leslie is a very staunch supporter of more government building of parks, whereas Ron is firmly against that.",0.0,,0,0
+extant,common1,magoosh,still in existence (in reference to documents),"After 30 years, Leslie and Ben were suprised to find her River Cleanup document was still extant in Public Work circles as an example of great work.",0.0,,0,0
+harangue,common1,magoosh,"a long pompous speed or tirade (n), or to deliver such one (v)",Leslie's harangue about Pawnee's lack of appreciation for her work was met with disapproval from the people of Pawnee and contributed to her loosing the election.,0.0,,0,0
+profligate,common1,magoosh,wasting resources recklessly (adj) or those who do that (n),"Eagletonians are terrible profligates. They have a department of Infinity Pools that's so profilgate, Leslie closed it and put the department on hold.",0.0,,0,0
