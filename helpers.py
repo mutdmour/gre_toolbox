@@ -1,4 +1,4 @@
-import csv, random
+import csv, random, os
 from gtts import gTTS
 
 keys = ["word","deck","source","def","ex", "weight", "lastTested","numTested","numRight"]
