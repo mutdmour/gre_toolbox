@@ -6,7 +6,7 @@ from helpers import reader, writer, speak, repeat, getList, yesOrNo
 def new_rule(v):
 	return v['weight'] == 0
 def review_rule(v):
-	return v['weight'] != 0 and v[weight] < 1
+	return v['weight'] != 0 and v['weight'] < 1
 def mastered_rule(v):
 	return v['weight'] == 1
 
@@ -15,7 +15,7 @@ def run(total=5):
 
 	qtypes = ["def","fill-in","example"]
 	options = ["quiz", "review", "mastered"]
-	prob = [1, 0, 0] #xxx allow for input from command line
+	prob = [0, 1, 0] #xxx allow for input from command line
 	count = 0
 
 	print ("q to quit")
@@ -93,4 +93,4 @@ def run(total=5):
 	print("learning", len(review_words))
 	print("mastered", len(mastered_words))
 
-run()
+run(50)
