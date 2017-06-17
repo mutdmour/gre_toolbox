@@ -15,7 +15,7 @@ def run(total=5):
 
 	qtypes = ["def","fill-in","example"]
 	options = ["quiz", "review", "mastered"]
-	prob = [0, 1, 0] #xxx allow for input from command line
+	prob = [.5, .5, 0]
 	count = 0
 
 	print ("q to quit")
@@ -67,6 +67,8 @@ def run(total=5):
 					trials -= 1
 			else:
 				#speak(test_word)
+				if (trials == 1):
+					print vocab[test_word]['ex']
 				if (answer == test_word):
 					reward = ""
 					if (trials == 1): #if you got it right the first time
