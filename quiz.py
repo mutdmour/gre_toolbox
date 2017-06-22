@@ -15,7 +15,7 @@ def run(total=5):
 
 	qtypes = ["def","fill-in","example"]
 	options = ["quiz", "review", "mastered"]
-	prob = [.5, .5, 0]
+	prob = [.8, .2, 0]
 	count = 0
 
 	print ("q to quit")
@@ -23,6 +23,19 @@ def run(total=5):
 	testing = True #more testing of different words
 
 	vocab = reader()
+	decks = []
+	for w, obj in vocab.iteritems():
+		d = obj['deck']
+		if (not d in decks):
+			decks.append(d)
+
+	print decks
+
+	deck = ''
+	while (not deck in decks and deck != "a"):
+		deck = raw_input("deck? (a for all) ")
+	if (deck == 'a'):
+		deck = None
 
 	while(testing):
 		more = True #more testing of the same word
@@ -39,7 +52,7 @@ def run(total=5):
 			rule = mastered_rule
 
 		#get list of words that match our rule to randomly select one from
-		arr = getList(vocab, rule, limit=10)
+		arr = getList(vocab, rule, deck=deck, limit=10)
 		if (len(arr) > 0):
 			test_word = random.choice(arr)
 			print ""
@@ -86,9 +99,9 @@ def run(total=5):
 	writer(vocab)
 
 	#use get list or make a getcount version of it
-	new_words = [k for k, v in vocab.iteritems() if v['weight'] == 0]
-	review_words = [k for k, v in vocab.iteritems() if v['weight'] != 0 and v['weight'] < 1]
-	mastered_words = [k for k, v in vocab.iteritems() if v['weight'] == 1]
+	new_words = getList(vocab, new_rule, deck=deck)
+	review_words = getList(vocab, review_rule, deck=deck)
+	mastered_words = getList(vocab, mastered_rule, deck=deck)
 
 	print("total", len(vocab))
 	print("not seen", len(new_words))

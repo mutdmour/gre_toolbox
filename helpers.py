@@ -64,13 +64,16 @@ def repeat():
 # takes a rule func that returns either True or false based on the value of a key
 # in a dictionary. the limit sets how many keys it needs to consider. there's no 
 # default limit
-def getList(words, rule, limit=None, shuffle=False):
+def getList(words, rule, deck=None, limit=None, shuffle=False):
         c = 0
         l = []
-        for k, v in words.iteritems():
+	keys = words.keys()
+	random.shuffle(keys)
+        for k in keys:
+		v = words[k]
                 if (limit != None and c >= limit):
                         break
-                if (rule(v)):
+                if (rule(v) and (not deck or deck == v['deck'])):
                         c += 1
                         l.append(k)
 	if (shuffle):
