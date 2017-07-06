@@ -9,6 +9,8 @@ def review_rule(v):
 	return v['weight'] != 0 and v['weight'] < 1
 def mastered_rule(v):
 	return v['weight'] == 1
+def all_rule(v):
+	return True
 
 def run(total=5):
 	dictionary = PyDictionary()
@@ -37,6 +39,15 @@ def run(total=5):
 	if (deck == 'a'):
 		deck = None
 
+	actions = ['q','qz','r']
+	
+	reset = yesOrNo('reset?')
+	if (reset):
+		mastered_words = getList(vocab, all_rule, deck=deck)
+		for w in mastered_words:
+			vocab[w]['weight']=0
+
+	test_word = None
 	while(testing):
 		more = True #more testing of the same word
 		if (count == total):
@@ -52,7 +63,9 @@ def run(total=5):
 			rule = mastered_rule
 
 		#get list of words that match our rule to randomly select one from
-		arr = getList(vocab, rule, deck=deck, limit=10)
+		arr = getList(vocab, rule, deck=deck, limit=50)
+		if (test_word and len(arr)>1 and test_word in arr):
+			arr.pop(arr.index(test_word))
 		if (len(arr) > 0):
 			test_word = random.choice(arr)
 			print ""
@@ -68,8 +81,13 @@ def run(total=5):
 			#else:
 				#repeat()
 			if (trials == 1):
-				print vocab[test_word]['def']
-			message = str.format("[{:.3}] word? ",state)  
+				defQ = True # definition question
+				if (random.random() > .5):
+					defQ = False
+					print "-->", vocab[test_word]['def']
+				else:
+					print "-->", vocab[test_word]['ex'].replace(test_word, "*"*len(test_word))
+			message = "? " #str.format("[{:.3}] word? ",state)  
 			answer = raw_input(message)
 			answer = answer.strip().lower()
 			if (answer == "q"):
@@ -80,8 +98,11 @@ def run(total=5):
 					trials -= 1
 			else:
 				#speak(test_word)
-				if (trials == 1):
-					print vocab[test_word]['ex']
+				#if (trials == 1):
+					#if (not defQ):
+						#print "-->", vocab[test_word]['ex']
+					#else:
+						#print "-->", vocab[test_word]['def']
 				if (answer == test_word):
 					reward = ""
 					if (trials == 1): #if you got it right the first time
@@ -108,4 +129,4 @@ def run(total=5):
 	print("learning", len(review_words))
 	print("mastered", len(mastered_words))
 
-run(50)
+run(1000)
