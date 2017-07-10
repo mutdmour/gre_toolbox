@@ -15,6 +15,7 @@ def reader():
 		for key, value in row.iteritems():
 			if (key != "word"):
 				if (key == "weight"):
+					print word
 					value = float(value)
 				elif (key == "numRight" or key == "numTested"):
 					value = int(value)
