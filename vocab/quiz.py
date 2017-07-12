@@ -17,7 +17,7 @@ def run(total=5):
 
 	qtypes = ["def","fill-in","example"]
 	options = ["quiz", "review", "mastered"]
-	prob = [.8, .2, 0]
+	prob = [1, 0, 0]
 	count = 0
 
 	print ("q to quit")
@@ -82,11 +82,11 @@ def run(total=5):
 				#repeat()
 			if (trials == 1):
 				defQ = True # definition question
-				if (random.random() > .5):
+				if (random.random() > .9):
 					defQ = False
 					print "-->", vocab[test_word]['def']
 				else:
-					print "-->", vocab[test_word]['ex'].replace(test_word, "*"*len(test_word))
+					print "-->", vocab[test_word]['ex'].replace(test_word, test_word[0]+"*"*(len(test_word)-1))
 			message = "? " #str.format("[{:.3}] word? ",state)  
 			answer = raw_input(message)
 			answer = answer.strip().lower()
